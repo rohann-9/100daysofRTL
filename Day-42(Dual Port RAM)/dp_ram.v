@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 module dp_ram
 #(parameter DATA_WIDTH=8,
-parameter ADDRESS_WIDTH=4,
+parameter ADDRESS_WIDTH=6,
 parameter DEPTH=64
 )(
 input [DATA_WIDTH-1:0]data_1,data_2,
