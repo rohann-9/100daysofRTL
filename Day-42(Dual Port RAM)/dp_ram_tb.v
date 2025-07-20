@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 module dp_ram_tb();
 parameter DATA_WIDTH=8;
-parameter ADDRESS_WIDTH=4;
+parameter ADDRESS_WIDTH=6;
 parameter DEPTH=64;
 reg [DATA_WIDTH-1:0]data_1,data_2;
 reg [ADDRESS_WIDTH-1:0]add_1,add_2;
