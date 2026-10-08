@@ -1,14 +1,20 @@
 `timescale 1ns / 1ps
 module bin2gray_tb();
-reg [3:0]b;
-wire [3:0]g;
-bin2gray DUT(b,g);
-initial
-begin
-b=4'b1011;#50
-b=4'b0111;#50
-b=4'b1101;#50
-b=4'b0001;#50
-$stop;
+parameter N=4;
+reg [N-1:0]bin;
+wire [N-1:0]gray;
+bin2gray #(.N(4))DUT(.bin(bin),.gray(gray));
+integer i;
+initial begin
+for(i=0;i<2**N;i=i+1)begin
+    bin = i;
+    #10;
+end
+if(gray==bin^(bin>>1)) begin
+    $display("PASS");
+end else begin
+    $display("FAIL");
+end
+$finish;
 end
 endmodule
